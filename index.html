@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>&lt;model-viewer&gt; template</title>
+    <meta charset="utf-8">
+    <meta name="description" content="&lt;model-viewer&gt; template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link type="text/css" href="./styles.css" rel="stylesheet"/>
+    <link type="buttons/css" href="./buttons.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <model-viewer src="ofc_systemn.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="1" auto-rotate>    
+      <div class="navbar">
+        <div class="navbar-logo">
+          <a href="./index.html">
+            <img src="favicon.ico" alt="Logo">
+          </a>
+        </div>
+        <div class="navbar-links">
+          <a href="./index.html">Planet System</a>
+          <a href="./planets/principal-planet.html">Trinity Planet</a>
+          <a href="./planets/nucleus/nucleus.html">Nucleus</a>
+        </div>
+        
+    </div>
+      <a id="fire" href="./biomes/fire/index.html" class="Hotspot" slot="hotspot-4" data-position="2.6687135494186913m 1.1334759849373623m 1.5671291528249576m" data-normal="-0.8840080263403849m 0.45461364587499503m -0.1088863735736589m" data-visibility-attribute="visible" >Ignis</a>
+      
+      <a id="trees" class="Hotspot" slot="hotspot-5" data-position="2.847941629946269m 1.1185974652305042m 1.7563491187810416m" data-normal="-0.2005262412686592m 0.47182589948551473m 0.8585857832140878m" data-visibility-attribute="visible" href="./biomes/tree/index.html">Verdania</a>
+      
+      <a id="snow" href="./biomes/snow/index.html" class="Hotspot" slot="hotspot-7" data-position="3.0856318643993403m 1.038734939136708m 1.6643269368228888m" data-normal="0.9472768355136151m 0.05661602858366429m 0.31537473298716456m" data-visibility-attribute="visible">Glacialia</a>
+    </model-viewer>  
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const hotspots = document.querySelectorAll(".Hotspot");
+    
+        hotspots.forEach((hotspot) => {
+          hotspot.addEventListener("mouseenter", function() {
+            const text = hotspot.textContent.trim();
+            hotspot.textContent = text; 
+          });
+    
+          hotspot.addEventListener("mousedown", function(event) {
+            event.preventDefault(); 
+          });
+    
+          hotspot.addEventListener("mouseleave", function() {
+            hotspot.style.backgroundColor = "rgba(0, 0, 0, 0.4)";
+          });
+        });
+      });
+    </script>    
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.2.0/model-viewer.min.js"></script>
+  </body>
+</html>
